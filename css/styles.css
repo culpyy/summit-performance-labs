@@ -526,6 +526,112 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .testimonial-card__author span { font-size: .8rem; color: var(--color-muted); }
 
 /* ============================================================
+   Trainers
+   ============================================================ */
+.trainers { background: var(--color-bg); }
+
+.trainers__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.trainer-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: border-color .3s, transform .3s;
+}
+.trainer-card:hover {
+  border-color: var(--color-accent);
+  transform: translateY(-4px);
+}
+
+.trainer-card__photo {
+  aspect-ratio: 4/3;
+  background: var(--color-surface2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+.trainer-card__photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  inset: 0;
+}
+
+.trainer-card__avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  color: var(--color-white);
+  letter-spacing: .05em;
+}
+
+.trainer-card__body {
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: .6rem;
+}
+
+.trainer-card__name {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  color: var(--color-white);
+  letter-spacing: .04em;
+}
+
+.trainer-card__title {
+  font-size: .85rem;
+  font-weight: 600;
+  color: var(--color-accent);
+  letter-spacing: .04em;
+}
+
+.trainer-card__certs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .4rem;
+}
+.trainer-card__certs span {
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  background: var(--color-surface2);
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  padding: .2rem .55rem;
+}
+
+.trainer-card__bio {
+  font-size: .9rem;
+  color: var(--color-muted);
+  line-height: 1.65;
+  margin-top: .2rem;
+}
+
+@media (max-width: 1024px) {
+  .trainers__grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 640px) {
+  .trainers__grid { grid-template-columns: 1fr; }
+}
+
+/* ============================================================
    Contact
    ============================================================ */
 .contact { background: var(--color-bg); }
