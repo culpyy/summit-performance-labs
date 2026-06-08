@@ -10,6 +10,7 @@
   --color-accent-h:  #ff7043;
   --color-text:      #f0f0f0;
   --color-muted:     #888;
+  --color-silver:    #9a9a9a;
   --color-white:     #ffffff;
 
   --font-display: 'Bebas Neue', sans-serif;
@@ -90,11 +91,11 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 
 .section-eyebrow {
   display: inline-block;
-  font-size: .8rem;
+  font-size: .75rem;
   font-weight: 700;
-  letter-spacing: .15em;
+  letter-spacing: .18em;
   text-transform: uppercase;
-  color: var(--color-accent);
+  color: var(--color-silver);
   margin-bottom: .75rem;
 }
 
@@ -148,7 +149,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   color: var(--color-white);
   line-height: 1;
 }
-.nav__logo span { color: var(--color-accent); }
+.nav__logo span { color: var(--color-silver); font-weight: 300; }
 
 .nav__links {
   display: flex;
@@ -228,11 +229,11 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   display: inline-flex;
   align-items: center;
   gap: .5rem;
-  font-size: .8rem;
+  font-size: .75rem;
   font-weight: 700;
-  letter-spacing: .15em;
+  letter-spacing: .18em;
   text-transform: uppercase;
-  color: var(--color-accent);
+  color: var(--color-silver);
   margin-bottom: 1.5rem;
 }
 .hero__eyebrow::before {
@@ -240,7 +241,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   display: block;
   width: 32px;
   height: 2px;
-  background: var(--color-accent);
+  background: var(--color-silver);
 }
 
 .hero__headline {
@@ -277,7 +278,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   display: block;
   width: 1px;
   height: 60px;
-  background: linear-gradient(to bottom, var(--color-accent), transparent);
+  background: linear-gradient(to bottom, rgba(255,255,255,.3), transparent);
   margin: auto;
   animation: scrollHint 2s ease-in-out infinite;
 }
@@ -303,10 +304,10 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .stat__num {
   font-family: var(--font-display);
   font-size: 3rem;
-  color: var(--color-accent);
+  color: var(--color-white);
   line-height: 1;
 }
-.stat__unit { font-family: var(--font-display); font-size: 2rem; color: var(--color-accent); }
+.stat__unit { font-family: var(--font-display); font-size: 2rem; color: var(--color-white); }
 .stat__label { font-size: .8rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--color-muted); margin-top: .4rem; }
 
 /* ============================================================
@@ -333,12 +334,12 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   transition: border-color .3s, transform .3s;
 }
 .service-card:hover {
-  border-color: var(--color-accent);
+  border-color: rgba(255,255,255,.22);
   transform: translateY(-4px);
 }
 
 .service-card--featured {
-  border-color: var(--color-accent);
+  border-color: rgba(255,255,255,.2);
   background: var(--color-surface2);
   transform: translateY(-8px);
 }
@@ -364,11 +365,11 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   width: 52px;
   height: 52px;
   border-radius: var(--radius);
-  background: rgba(244,93,42,.12);
+  background: rgba(255,255,255,.06);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--color-accent);
+  color: var(--color-silver);
 }
 .service-card__icon svg { width: 26px; height: 26px; }
 
@@ -398,10 +399,10 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   left: 0;
   top: 50%;
   transform: translateY(-50%);
-  width: 6px;
-  height: 6px;
+  width: 5px;
+  height: 5px;
   border-radius: 50%;
-  background: var(--color-accent);
+  background: var(--color-border);
 }
 
 .service-card .btn { margin-top: auto; align-self: flex-start; }
@@ -459,17 +460,17 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   gap: .9rem;
   transition: border-color .3s;
 }
-.why-card:hover { border-color: var(--color-accent); }
+.why-card:hover { border-color: rgba(255,255,255,.2); }
 
 .why-card__icon {
   width: 48px;
   height: 48px;
   border-radius: var(--radius);
-  background: rgba(244,93,42,.12);
+  background: rgba(255,255,255,.06);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--color-accent);
+  color: var(--color-silver);
 }
 .why-card__icon svg { width: 22px; height: 22px; }
 
@@ -497,7 +498,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   gap: 1rem;
 }
 
-.testimonial-card__stars { color: var(--color-accent); font-size: 1rem; letter-spacing: .1em; }
+.testimonial-card__stars { color: var(--color-white); font-size: 1rem; letter-spacing: .1em; }
 .testimonial-card__quote { color: var(--color-text); font-size: .95rem; line-height: 1.7; flex: 1; }
 
 .testimonial-card__author {
@@ -512,7 +513,8 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: var(--color-accent);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -544,7 +546,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   transition: border-color .3s, transform .3s;
 }
 .trainer-card:hover {
-  border-color: var(--color-accent);
+  border-color: rgba(255,255,255,.2);
   transform: translateY(-4px);
 }
 
@@ -569,13 +571,14 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   width: 80px;
   height: 80px;
   border-radius: 50%;
-  background: var(--color-accent);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
   display: flex;
   align-items: center;
   justify-content: center;
   font-family: var(--font-display);
   font-size: 1.8rem;
-  color: var(--color-white);
+  color: var(--color-silver);
   letter-spacing: .05em;
 }
 
@@ -596,7 +599,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .trainer-card__title {
   font-size: .85rem;
   font-weight: 600;
-  color: var(--color-accent);
+  color: var(--color-silver);
   letter-spacing: .04em;
 }
 
@@ -656,7 +659,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   color: var(--color-muted);
   font-size: .9rem;
 }
-.contact__detail svg { width: 18px; height: 18px; color: var(--color-accent); flex-shrink: 0; }
+.contact__detail svg { width: 18px; height: 18px; color: var(--color-silver); flex-shrink: 0; }
 
 .contact__social {
   display: flex;
@@ -674,7 +677,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   color: var(--color-muted);
   transition: all .2s;
 }
-.contact__social a:hover { color: var(--color-accent); border-color: var(--color-accent); }
+.contact__social a:hover { color: var(--color-white); border-color: rgba(255,255,255,.3); }
 .contact__social svg { width: 18px; height: 18px; }
 
 /* Form */
@@ -708,7 +711,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   letter-spacing: .02em;
 }
 
-.required { color: var(--color-accent); }
+.required { color: var(--color-muted); }
 
 .form-group input,
 .form-group select,
@@ -750,7 +753,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   padding: 2rem;
 }
 .form-success.show { display: flex; }
-.form-success svg { width: 48px; height: 48px; color: var(--color-accent); }
+.form-success svg { width: 48px; height: 48px; color: var(--color-white); }
 .form-success p { font-size: 1.1rem; color: var(--color-white); font-weight: 600; }
 
 /* ============================================================
@@ -785,7 +788,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   margin-bottom: .25rem;
 }
 .footer__links a { font-size: .9rem; color: var(--color-muted); transition: color .2s; }
-.footer__links a:hover { color: var(--color-accent); }
+.footer__links a:hover { color: var(--color-white); }
 
 .footer__bottom {
   border-top: 1px solid var(--color-border);
