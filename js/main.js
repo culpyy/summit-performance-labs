@@ -8,23 +8,37 @@ window.addEventListener('scroll', () => {
   nav.classList.toggle('scrolled', window.scrollY > 20);
 }, { passive: true });
 
+// iOS-safe scroll lock: position:fixed preserves scroll position
+let savedScrollY = 0;
+function lockScroll() {
+  savedScrollY = window.scrollY;
+  document.body.style.position = 'fixed';
+  document.body.style.top = `-${savedScrollY}px`;
+  document.body.style.width = '100%';
+}
+function unlockScroll() {
+  document.body.style.position = '';
+  document.body.style.top = '';
+  document.body.style.width = '';
+  window.scrollTo(0, savedScrollY);
+}
+
 function closeNav() {
   hamburger.classList.remove('open');
   navLinks.classList.remove('open');
   navBackdrop.classList.remove('open');
-  document.body.style.overflow = '';
+  unlockScroll();
 }
 
 hamburger.addEventListener('click', () => {
   const isOpen = navLinks.classList.toggle('open');
   hamburger.classList.toggle('open', isOpen);
   navBackdrop.classList.toggle('open', isOpen);
-  document.body.style.overflow = isOpen ? 'hidden' : '';
+  isOpen ? lockScroll() : unlockScroll();
 });
 
 navBackdrop.addEventListener('click', closeNav);
 
-// Close nav on link tap
 navLinks.querySelectorAll('a').forEach(link => {
   link.addEventListener('click', closeNav);
 });
