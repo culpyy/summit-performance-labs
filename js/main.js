@@ -1,23 +1,32 @@
-// Nav: add scrolled class + hamburger toggle
+// Nav: scrolled state + hamburger + backdrop
 const nav = document.getElementById('nav');
 const hamburger = document.getElementById('hamburger');
 const navLinks = document.getElementById('navLinks');
+const navBackdrop = document.getElementById('navBackdrop');
 
 window.addEventListener('scroll', () => {
   nav.classList.toggle('scrolled', window.scrollY > 20);
 }, { passive: true });
 
+function closeNav() {
+  hamburger.classList.remove('open');
+  navLinks.classList.remove('open');
+  navBackdrop.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
 hamburger.addEventListener('click', () => {
-  hamburger.classList.toggle('open');
-  navLinks.classList.toggle('open');
+  const isOpen = navLinks.classList.toggle('open');
+  hamburger.classList.toggle('open', isOpen);
+  navBackdrop.classList.toggle('open', isOpen);
+  document.body.style.overflow = isOpen ? 'hidden' : '';
 });
 
-// Close mobile nav when a link is clicked
+navBackdrop.addEventListener('click', closeNav);
+
+// Close nav on link tap
 navLinks.querySelectorAll('a').forEach(link => {
-  link.addEventListener('click', () => {
-    hamburger.classList.remove('open');
-    navLinks.classList.remove('open');
-  });
+  link.addEventListener('click', closeNav);
 });
 
 // Stat counter animation
