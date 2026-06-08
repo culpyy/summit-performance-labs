@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Summit Performance Labs — elite personal training, group fitness, and tactical athlete conditioning. Push beyond your limits." />
+  <title>Summit Performance Labs</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <header class="nav" id="nav">
+    <div class="nav__inner container">
+      <a href="#hero" class="nav__logo">SUMMIT<span>PERFORMANCE</span>LABS</a>
+      <nav class="nav__links" id="navLinks">
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#why">Why Us</a>
+        <a href="#contact">Contact</a>
+        <a href="#contact" class="btn btn--accent">Get Started</a>
+      </nav>
+      <button class="nav__hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="hero__overlay"></div>
+    <div class="hero__content container">
+      <p class="hero__eyebrow">Elite Fitness &amp; Tactical Conditioning</p>
+      <h1 class="hero__headline">TRAIN LIKE<br/>YOUR MISSION<br/>DEPENDS ON IT</h1>
+      <p class="hero__sub">Summit Performance Labs builds stronger athletes, tougher professionals, and more resilient people — through science-backed training that meets you where you are and pushes you past where you thought you could go.</p>
+      <div class="hero__ctas">
+        <a href="#contact" class="btn btn--accent btn--lg">Start Training</a>
+        <a href="#services" class="btn btn--outline btn--lg">Our Programs</a>
+      </div>
+    </div>
+    <div class="hero__scroll-hint">
+      <span></span>
+    </div>
+  </section>
+
+  <!-- STATS BAR -->
+  <section class="stats">
+    <div class="container stats__grid">
+      <div class="stat">
+        <span class="stat__num" data-target="500">0</span><span class="stat__unit">+</span>
+        <p class="stat__label">Athletes Trained</p>
+      </div>
+      <div class="stat">
+        <span class="stat__num" data-target="10">0</span><span class="stat__unit">+</span>
+        <p class="stat__label">Years of Experience</p>
+      </div>
+      <div class="stat">
+        <span class="stat__num" data-target="3">0</span><span class="stat__unit"></span>
+        <p class="stat__label">Training Disciplines</p>
+      </div>
+      <div class="stat">
+        <span class="stat__num" data-target="100">0</span><span class="stat__unit">%</span>
+        <p class="stat__label">Commitment to Results</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="services section" id="services">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-eyebrow">What We Offer</p>
+        <h2 class="section-title">Our Programs</h2>
+        <p class="section-sub">Three focused disciplines. One goal: make you better.</p>
+      </div>
+      <div class="services__grid">
+
+        <div class="service-card">
+          <div class="service-card__icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6 4v6a6 6 0 0 0 12 0V4"/><line x1="4" y1="4" x2="20" y2="4"/>
+            </svg>
+          </div>
+          <h3 class="service-card__title">Personal Training</h3>
+          <p class="service-card__desc">One-on-one programming designed around your goals, your body, and your schedule. Expect assessments, measurable benchmarks, and a coach who's in it with you.</p>
+          <ul class="service-card__list">
+            <li>Customized training programs</li>
+            <li>Nutrition &amp; recovery guidance</li>
+            <li>Progress tracking &amp; benchmarks</li>
+            <li>Flexible scheduling</li>
+          </ul>
+          <a href="#contact" class="btn btn--accent">Learn More</a>
+        </div>
+
+        <div class="service-card service-card--featured">
+          <div class="service-card__badge">Most Popular</div>
+          <div class="service-card__icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+            </svg>
+          </div>
+          <h3 class="service-card__title">Group Classes</h3>
+          <p class="service-card__desc">High-energy, coach-led sessions that build strength, conditioning, and community. Small class sizes mean you still get the attention you need to move right and improve fast.</p>
+          <ul class="service-card__list">
+            <li>Structured strength &amp; conditioning</li>
+            <li>Small group format (max 12)</li>
+            <li>Beginner to advanced levels</li>
+            <li>Community accountability</li>
+          </ul>
+          <a href="#contact" class="btn btn--accent">Learn More</a>
+        </div>
+
+        <div class="service-card">
+          <div class="service-card__icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+            </svg>
+          </div>
+          <h3 class="service-card__title">Tactical Training</h3>
+          <p class="service-card__desc">Purpose-built conditioning for military, law enforcement, fire, and EMS professionals. We train the physical demands of your job — because the job doesn't wait for you to be ready.</p>
+          <ul class="service-card__list">
+            <li>Job-specific fitness standards</li>
+            <li>Occupational endurance &amp; strength</li>
+            <li>Load-bearing &amp; functional movement</li>
+            <li>Stress-inoculation protocols</li>
+          </ul>
+          <a href="#contact" class="btn btn--accent">Learn More</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about section" id="about">
+    <div class="container about__inner">
+      <div class="about__visual">
+        <div class="about__img-placeholder">
+          <span>SUMMIT<br/>PERFORMANCE<br/>LABS</span>
+        </div>
+      </div>
+      <div class="about__content">
+        <p class="section-eyebrow">Our Story</p>
+        <h2 class="section-title">Built for People<br/>Who Don't Quit</h2>
+        <p>Summit Performance Labs was founded on a simple belief: that every person — whether you're a competitive athlete, a first responder, or someone who just wants to feel stronger — deserves coaching that takes them seriously.</p>
+        <p>We combine evidence-based programming with real-world application. No gimmicks. No empty hype. Just hard, smart work and coaches who actually give a damn about your progress.</p>
+        <p>Our facility and coaching staff are built around three disciplines that feed each other: personal training that individualizes the approach, group classes that build culture and accountability, and tactical conditioning that prepares professionals for the demands of their jobs.</p>
+        <a href="#contact" class="btn btn--accent">Train With Us</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY US -->
+  <section class="why section" id="why">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-eyebrow">The Difference</p>
+        <h2 class="section-title">Why Summit</h2>
+        <p class="section-sub">There are a lot of gyms. Here's what makes us different.</p>
+      </div>
+      <div class="why__grid">
+        <div class="why-card">
+          <div class="why-card__icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/>
+            </svg>
+          </div>
+          <h3>Results-Driven</h3>
+          <p>We track everything. Every session has intention, every block has benchmarks. You'll know exactly where you stand and what comes next.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-card__icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+            </svg>
+          </div>
+          <h3>Science-Backed</h3>
+          <p>Our programming draws from strength &amp; conditioning research, sports science, and real-world field experience — not trends.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-card__icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+            </svg>
+          </div>
+          <h3>Community First</h3>
+          <p>Training alone is hard. Training with people who push you is different. Summit is a place where people show up for each other.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-card__icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>
+            </svg>
+          </div>
+          <h3>Tactical Expertise</h3>
+          <p>We understand the physical demands on first responders and military personnel. Your training reflects that — not a generic template.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials section">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-eyebrow">Real Results</p>
+        <h2 class="section-title">What Athletes Say</h2>
+      </div>
+      <div class="testimonials__grid">
+        <div class="testimonial-card">
+          <div class="testimonial-card__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="testimonial-card__quote">"Summit Performance Labs completely changed how I approach fitness. I've done a lot of programs — nothing has delivered like this. The coaches are the real deal."</p>
+          <div class="testimonial-card__author">
+            <div class="testimonial-card__avatar">JR</div>
+            <div>
+              <strong>James R.</strong>
+              <span>Personal Training Client</span>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-card__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="testimonial-card__quote">"As a firefighter, staying job-ready is non-negotiable. The tactical program at Summit is built around what I actually need on the job. My PT scores have never been higher."</p>
+          <div class="testimonial-card__author">
+            <div class="testimonial-card__avatar">MK</div>
+            <div>
+              <strong>Marcus K.</strong>
+              <span>Firefighter / Tactical Program</span>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-card__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="testimonial-card__quote">"I was nervous to start group classes but the Summit community welcomed me immediately. Six months later I'm stronger than I've ever been and I actually look forward to training."</p>
+          <div class="testimonial-card__author">
+            <div class="testimonial-card__avatar">SA</div>
+            <div>
+              <strong>Sarah A.</strong>
+              <span>Group Class Member</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact section" id="contact">
+    <div class="container contact__inner">
+      <div class="contact__info">
+        <p class="section-eyebrow">Get In Touch</p>
+        <h2 class="section-title">Ready to Start?</h2>
+        <p>Whether you're looking for a custom training plan, want to jump into group classes, or need tactical conditioning — we want to hear from you. Fill out the form and a coach will reach out within 24 hours.</p>
+        <div class="contact__details">
+          <div class="contact__detail">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+            </svg>
+            <span>Location details coming soon</span>
+          </div>
+          <div class="contact__detail">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
+            </svg>
+            <span>info@summitperformancelabs.com</span>
+          </div>
+          <div class="contact__detail">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 5.49 5.49l.95-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7a2 2 0 0 1 1.72 2.03z"/>
+            </svg>
+            <span>(555) 000-0000</span>
+          </div>
+        </div>
+        <div class="contact__social">
+          <a href="https://www.instagram.com/summitperformancelab/" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <form class="contact__form" id="contactForm" novalidate>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="firstName">First Name <span class="required">*</span></label>
+            <input type="text" id="firstName" name="firstName" placeholder="John" required />
+          </div>
+          <div class="form-group">
+            <label for="lastName">Last Name <span class="required">*</span></label>
+            <input type="text" id="lastName" name="lastName" placeholder="Doe" required />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="email">Email <span class="required">*</span></label>
+          <input type="email" id="email" name="email" placeholder="you@email.com" required />
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" name="phone" placeholder="(555) 000-0000" />
+        </div>
+        <div class="form-group">
+          <label for="service">Interested In <span class="required">*</span></label>
+          <select id="service" name="service" required>
+            <option value="" disabled selected>Select a program...</option>
+            <option value="personal-training">Personal Training</option>
+            <option value="group-classes">Group Classes</option>
+            <option value="tactical-training">Tactical Training</option>
+            <option value="not-sure">Not Sure Yet</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="message">Tell Us About Your Goals</label>
+          <textarea id="message" name="message" rows="4" placeholder="What are you working toward? Any injuries, schedule needs, or questions we should know about?"></textarea>
+        </div>
+        <button type="submit" class="btn btn--accent btn--full">Send Message</button>
+        <p class="form-note">We'll get back to you within 24 hours. No spam, ever.</p>
+        <div class="form-success" id="formSuccess">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/>
+          </svg>
+          <p>Message sent! A coach will reach out within 24 hours.</p>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <span class="nav__logo">SUMMIT<span>PERFORMANCE</span>LABS</span>
+        <p>Elite training for athletes, professionals, and everyone in between.</p>
+      </div>
+      <div class="footer__links">
+        <h4>Programs</h4>
+        <a href="#services">Personal Training</a>
+        <a href="#services">Group Classes</a>
+        <a href="#services">Tactical Training</a>
+      </div>
+      <div class="footer__links">
+        <h4>Company</h4>
+        <a href="#about">About Us</a>
+        <a href="#why">Why Summit</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="footer__links">
+        <h4>Connect</h4>
+        <a href="https://www.instagram.com/summitperformancelab/" target="_blank" rel="noopener">Instagram</a>
+        <a href="mailto:info@summitperformancelabs.com">Email Us</a>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p>&copy; 2026 Summit Performance Labs. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
