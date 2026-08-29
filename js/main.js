@@ -66,31 +66,33 @@ const counterObserver = new IntersectionObserver((entries) => {
 
 counters.forEach(c => counterObserver.observe(c));
 
-// Contact form: client-side validation + success state
+// Contact form: client-side validation + success state (only present on contact.html)
 const form = document.getElementById('contactForm');
 const formSuccess = document.getElementById('formSuccess');
 
-form.addEventListener('submit', (e) => {
-  e.preventDefault();
+if (form) {
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
 
-  const required = form.querySelectorAll('[required]');
-  let valid = true;
+    const required = form.querySelectorAll('[required]');
+    let valid = true;
 
-  required.forEach(field => {
-    if (!field.value.trim()) {
-      valid = false;
-      field.style.borderColor = '#e53935';
-      field.addEventListener('input', () => {
-        field.style.borderColor = '';
-      }, { once: true });
-    }
+    required.forEach(field => {
+      if (!field.value.trim()) {
+        valid = false;
+        field.style.borderColor = '#e53935';
+        field.addEventListener('input', () => {
+          field.style.borderColor = '';
+        }, { once: true });
+      }
+    });
+
+    if (!valid) return;
+
+    // TODO: wire up to a backend / Netlify Forms / Formspree by adding
+    //   action="https://formspree.io/f/YOUR_ID" method="POST"
+    //   or Netlify's data-netlify="true" attribute on the <form> tag.
+    //   Remove the e.preventDefault() call and submit handler once wired.
+    formSuccess.classList.add('show');
   });
-
-  if (!valid) return;
-
-  // TODO: wire up to a backend / Netlify Forms / Formspree by adding
-  //   action="https://formspree.io/f/YOUR_ID" method="POST"
-  //   or Netlify's data-netlify="true" attribute on the <form> tag.
-  //   Remove the e.preventDefault() call and submit handler once wired.
-  formSuccess.classList.add('show');
-});
+}

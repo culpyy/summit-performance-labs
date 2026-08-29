@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="description" content="Contact Summit Performance Labs — questions about personal training, group classes, or tactical conditioning." />
+  <title>Contact | Summit Performance Labs</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <div class="nav__backdrop" id="navBackdrop"></div>
+
+  <!-- NAV -->
+  <header class="nav" id="nav">
+    <div class="nav__inner container">
+      <a href="index.html" class="nav__logo">SUMMIT<span>PERFORMANCE</span>LABS</a>
+      <nav class="nav__links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="programs.html">Programs</a>
+        <a href="team-training.html">Team Training</a>
+        <a href="coaches.html">Coaches</a>
+        <a href="contact.html" class="active">Contact</a>
+        <a href="team-training.html" class="btn btn--accent">Book a Call</a>
+      </nav>
+      <button class="nav__hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- CONTACT -->
+  <section class="contact section" style="padding-top: calc(var(--nav-h) + env(safe-area-inset-top, 0px) + 3.5rem);">
+    <div class="container contact__inner">
+      <div class="contact__info">
+        <p class="section-eyebrow">Get In Touch</p>
+        <h2 class="section-title">Ready to Start?</h2>
+        <p>Whether you're looking for a custom training plan, want to jump into group classes, or need tactical conditioning — we want to hear from you. Fill out the form and a coach will reach out within 24 hours.</p>
+        <div class="contact__details">
+          <div class="contact__detail">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+            </svg>
+            <span>Location details coming soon</span>
+          </div>
+          <div class="contact__detail">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
+            </svg>
+            <span>info@summitperformancelabs.com</span>
+          </div>
+          <div class="contact__detail">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 5.49 5.49l.95-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7a2 2 0 0 1 1.72 2.03z"/>
+            </svg>
+            <span>(555) 000-0000</span>
+          </div>
+        </div>
+        <div class="contact__social">
+          <a href="https://www.instagram.com/summitperformancelab/" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <form class="contact__form" id="contactForm" novalidate>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="firstName">First Name <span class="required">*</span></label>
+            <input type="text" id="firstName" name="firstName" placeholder="John" required />
+          </div>
+          <div class="form-group">
+            <label for="lastName">Last Name <span class="required">*</span></label>
+            <input type="text" id="lastName" name="lastName" placeholder="Doe" required />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="email">Email <span class="required">*</span></label>
+          <input type="email" id="email" name="email" placeholder="you@email.com" required />
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" name="phone" placeholder="(555) 000-0000" />
+        </div>
+        <div class="form-group">
+          <label for="service">Interested In <span class="required">*</span></label>
+          <select id="service" name="service" required>
+            <option value="" disabled selected>Select a program...</option>
+            <option value="personal-training">Personal Training</option>
+            <option value="group-classes">Group Classes</option>
+            <option value="tactical-training">Tactical Training</option>
+            <option value="team-unit-training">Team / Unit Training</option>
+            <option value="not-sure">Not Sure Yet</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="message">Tell Us About Your Goals</label>
+          <textarea id="message" name="message" rows="4" placeholder="What are you working toward? Any injuries, schedule needs, or questions we should know about?"></textarea>
+        </div>
+        <button type="submit" class="btn btn--accent btn--full">Send Message</button>
+        <p class="form-note">We'll get back to you within 24 hours. No spam, ever.</p>
+        <div class="form-success" id="formSuccess">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/>
+          </svg>
+          <p>Message sent! A coach will reach out within 24 hours.</p>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <span class="nav__logo">SUMMIT<span>PERFORMANCE</span>LABS</span>
+        <p>Elite training for athletes, professionals, and everyone in between.</p>
+      </div>
+      <div class="footer__links">
+        <h4>Explore</h4>
+        <a href="programs.html">Programs</a>
+        <a href="team-training.html">Team Training</a>
+        <a href="coaches.html">Coaches</a>
+      </div>
+      <div class="footer__links">
+        <h4>Company</h4>
+        <a href="index.html">Home</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer__links">
+        <h4>Connect</h4>
+        <a href="https://www.instagram.com/summitperformancelab/" target="_blank" rel="noopener">Instagram</a>
+        <a href="mailto:info@summitperformancelabs.com">Email Us</a>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p>&copy; 2026 Summit Performance Labs. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

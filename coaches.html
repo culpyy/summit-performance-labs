@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="description" content="Meet the coaching team at Summit Performance Labs — certified, experienced, and invested in your results." />
+  <title>Coaches | Summit Performance Labs</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <div class="nav__backdrop" id="navBackdrop"></div>
+
+  <!-- NAV -->
+  <header class="nav" id="nav">
+    <div class="nav__inner container">
+      <a href="index.html" class="nav__logo">SUMMIT<span>PERFORMANCE</span>LABS</a>
+      <nav class="nav__links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="programs.html">Programs</a>
+        <a href="team-training.html">Team Training</a>
+        <a href="coaches.html" class="active">Coaches</a>
+        <a href="contact.html">Contact</a>
+        <a href="team-training.html" class="btn btn--accent">Book a Call</a>
+      </nav>
+      <button class="nav__hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="container page-hero__inner">
+      <p class="section-eyebrow">The Team</p>
+      <h1 class="section-title">Meet Your Coaches</h1>
+      <p class="page-hero__sub">Certified, experienced, and genuinely invested in your success.</p>
+    </div>
+  </section>
+
+  <!-- COACHES -->
+  <section class="trainers section">
+    <div class="container">
+      <div class="trainers__grid" id="coachesGrid">
+        <p class="state-message">Loading coaches…</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <span class="nav__logo">SUMMIT<span>PERFORMANCE</span>LABS</span>
+        <p>Elite training for athletes, professionals, and everyone in between.</p>
+      </div>
+      <div class="footer__links">
+        <h4>Explore</h4>
+        <a href="programs.html">Programs</a>
+        <a href="team-training.html">Team Training</a>
+        <a href="coaches.html">Coaches</a>
+      </div>
+      <div class="footer__links">
+        <h4>Company</h4>
+        <a href="index.html">Home</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer__links">
+        <h4>Connect</h4>
+        <a href="https://www.instagram.com/summitperformancelab/" target="_blank" rel="noopener">Instagram</a>
+        <a href="mailto:info@summitperformancelabs.com">Email Us</a>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p>&copy; 2026 Summit Performance Labs. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+  <script src="js/supabase-client.js"></script>
+  <script src="js/coaches.js"></script>
+</body>
+</html>
