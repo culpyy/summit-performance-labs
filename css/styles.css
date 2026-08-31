@@ -459,25 +459,35 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   align-items: center;
 }
 
-.about__img-placeholder {
-  aspect-ratio: 4/5;
-  background: var(--color-surface2);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--font-display);
-  font-size: 2.2rem;
-  color: var(--color-border);
-  text-align: center;
-  line-height: 1.2;
-  letter-spacing: .1em;
-}
-
 .about__content { display: flex; flex-direction: column; gap: 1.25rem; }
 .about__content .section-title { text-align: left; margin-bottom: 0; }
 .about__content p { color: var(--color-muted); }
+
+.about__visual { position: relative; }
+.about__visual::before {
+  content: '';
+  position: absolute;
+  top: -16px;
+  left: -16px;
+  width: 60%;
+  height: 60%;
+  border: 2px solid var(--color-accent);
+  border-radius: var(--radius-lg);
+  z-index: 0;
+  opacity: .55;
+}
+.about__img {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  aspect-ratio: 4/5;
+  object-fit: cover;
+  object-position: center 25%;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow);
+}
 
 /* ============================================================
    Why Us
@@ -858,7 +868,8 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   .why__grid { grid-template-columns: repeat(2, 1fr); }
   .testimonials__grid { grid-template-columns: 1fr; }
   .about__inner { grid-template-columns: 1fr; gap: 2.5rem; }
-  .about__img-placeholder { aspect-ratio: 16/9; }
+  .about__img { aspect-ratio: 16/9; }
+  .about__visual::before { display: none; }
   .contact__inner { grid-template-columns: 1fr; gap: 3rem; }
   .footer__inner { grid-template-columns: 1fr 1fr; }
   .stats__grid { grid-template-columns: repeat(2, 1fr); }
@@ -941,26 +952,42 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
    ============================================================ */
 .page-hero {
   position: relative;
-  padding-top: calc(var(--nav-h) + env(safe-area-inset-top, 0px) + 3.5rem);
-  padding-bottom: 3.5rem;
-  background: var(--color-bg);
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  padding-top: calc(var(--nav-h) + env(safe-area-inset-top, 0px));
+  padding-bottom: 2rem;
+  background-color: var(--color-bg);
+  background-image: var(--page-hero-image, none);
+  background-position: center 30%;
+  background-size: cover;
+  background-repeat: no-repeat;
   text-align: center;
+  overflow: hidden;
 }
 .page-hero::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse 80% 60% at 50% -10%, rgba(244,93,42,.16) 0%, transparent 70%);
+  background:
+    linear-gradient(180deg, rgba(10,10,10,.7) 0%, rgba(10,10,10,.55) 50%, rgba(10,10,10,.95) 100%),
+    radial-gradient(ellipse 80% 60% at 50% -10%, rgba(244,93,42,.14) 0%, transparent 70%);
   pointer-events: none;
 }
-.page-hero__inner { position: relative; z-index: 1; }
-.page-hero .section-eyebrow { }
+.page-hero__inner { position: relative; z-index: 1; width: 100%; }
 .page-hero h1.section-title { margin-bottom: 1rem; }
 .page-hero__sub { color: var(--color-muted); max-width: 640px; margin-inline: auto; font-size: 1.05rem; }
 
+.page-hero--programs { --page-hero-image: url('../assets/img/programs-warehouse.jpg'); }
+.page-hero--team { --page-hero-image: url('../assets/img/team-ropes-group.jpg'); }
+.page-hero--coaches { --page-hero-image: url('../assets/img/coaches-corridor.jpg'); }
+
 /* ============================================================
-   Hero — Video Background (Home)
+   Hero — Photo Background (Home)
    ============================================================ */
+.hero--video {
+  background: url('../assets/img/hero-lift.jpg') center 22% / cover no-repeat;
+}
 .hero--video .hero__video {
   position: absolute;
   inset: 0;
@@ -973,7 +1000,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   position: absolute;
   inset: 0;
   z-index: 0;
-  background: linear-gradient(180deg, rgba(10,10,10,.8) 0%, rgba(10,10,10,.6) 45%, rgba(10,10,10,.95) 100%);
+  background: linear-gradient(180deg, rgba(10,10,10,.5) 0%, rgba(10,10,10,.35) 45%, rgba(10,10,10,.92) 100%);
 }
 .hero--video .hero__content { position: relative; z-index: 1; }
 .hero--video::before { display: none; }
@@ -1164,28 +1191,6 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 .why-card__icon { width: 52px; height: 52px; }
 
-/* Stamp — a rotated patch badge, the way tactical apparel marks a claim
-   ("EST.", unit designations). Used once, in the hero — not repeated. */
-.stamp-badge {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  width: 108px;
-  height: 108px;
-  border-radius: 50%;
-  border: 1px dashed rgba(204,210,218,.45);
-  color: var(--color-steel-light);
-  font-size: .62rem;
-  font-weight: 700;
-  letter-spacing: .1em;
-  text-transform: uppercase;
-  line-height: 1.4;
-  transform: rotate(-9deg);
-  padding: .5rem;
-  flex-shrink: 0;
-}
-
 /* ============================================================
    Extra responsive rules for new sections
    ============================================================ */
@@ -1193,8 +1198,4 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   .guides__grid { grid-template-columns: 1fr; }
   .pricing__grid { grid-template-columns: 1fr; }
   .team-training__grid { grid-template-columns: 1fr; }
-}
-
-@media (max-width: 640px) {
-  .stamp-badge { display: none; }
 }
