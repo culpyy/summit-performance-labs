@@ -14,14 +14,23 @@ function intervalLabel(interval) {
   return interval === 'one-time' ? 'one-time' : `/ ${interval}`;
 }
 
+const PROGRAM_ICON = {
+  subscription: '<path d="M23 4v6h-6"/><path d="M1 20v-6h6"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/>',
+  program: '<path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/>',
+};
+
 function programCardHTML(program) {
   const features = (program.features || []).map(f => `<li>${escapeHtml(f)}</li>`).join('');
   const cta = program.stripe_link
     ? `<a href="${escapeHtml(program.stripe_link)}" class="btn btn--accent" target="_blank" rel="noopener">${program.type === 'subscription' ? 'Subscribe' : 'Enroll Now'}</a>`
     : `<a href="contact.html" class="btn btn--accent">Contact Us</a>`;
+  const iconPath = PROGRAM_ICON[program.type] || PROGRAM_ICON.program;
 
   return `
     <div class="service-card">
+      <div class="service-card__icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${iconPath}</svg>
+      </div>
       <h3 class="service-card__title">${escapeHtml(program.name)}</h3>
       <div class="pricing-card__price">
         <span class="amount">${formatPrice(program.price_cents)}</span>
