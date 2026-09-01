@@ -191,7 +191,9 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   gap: .65rem;
 }
 .nav__logo span { color: var(--color-silver); font-weight: 400; }
-.nav__logo img { height: 42px; width: auto; display: block; flex-shrink: 0; }
+/* Inline SVG, not a raster <img> — sidesteps every image-intrinsic-size/
+   flex-sizing edge case that a PNG can hit on some mobile renderers. */
+.nav__logo-icon { height: 42px; width: auto; display: block; flex-shrink: 0; color: var(--color-steel-light); }
 .nav__logo-text { white-space: nowrap; }
 
 .nav__links {
@@ -894,7 +896,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 
 .footer__brand { display: flex; flex-direction: column; gap: 1rem; }
 .footer__brand p { color: var(--color-muted); font-size: .9rem; max-width: 240px; }
-.footer__brand .nav__logo img { height: 52px; }
+.footer__brand .nav__logo-icon { height: 52px; }
 
 .footer__links {
   display: flex;
