@@ -41,7 +41,7 @@
 html {
   scroll-behavior: smooth;
   font-size: 16px;
-  scroll-padding-top: var(--nav-h);
+  scroll-padding-top: calc(var(--nav-h) + env(safe-area-inset-top, 0px));
 }
 
 body {
@@ -158,13 +158,18 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
    than a fade-in overlay. Simpler and more robust than a scroll-triggered
    transparent-to-blurred state, and reads like a console strip, which
    suits the briefing-room direction. */
+/* The bar grows to absorb the notch/status-bar inset (padding-top),
+   and the actual content row stays a fixed --nav-h below that — so the
+   logo/links never sit inside the area the OS status bar draws over,
+   instead of guessing where the safe zone starts. */
 .nav {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 99;
-  height: var(--nav-h);
+  height: calc(var(--nav-h) + env(safe-area-inset-top, 0px));
+  padding-top: env(safe-area-inset-top, 0px);
   background: var(--color-bg);
   border-bottom: 1px solid var(--color-border);
 }
@@ -172,7 +177,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .nav.scrolled { background: var(--color-bg); }
 
 .nav__inner {
-  height: 100%;
+  height: var(--nav-h);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -285,7 +290,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   position: relative;
   z-index: 1;
   max-width: 620px;
-  padding: calc(var(--nav-h) + 2rem) clamp(1.5rem, 4vw, 4rem) 3rem clamp(1.5rem, 6vw, 5rem);
+  padding: calc(var(--nav-h) + env(safe-area-inset-top, 0px) + 2rem) clamp(1.5rem, 4vw, 4rem) 3rem clamp(1.5rem, 6vw, 5rem);
 }
 
 .hero__eyebrow {
@@ -945,7 +950,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   /* Mobile nav drawer */
   .nav__links {
     position: fixed;
-    top: var(--nav-h);
+    top: calc(var(--nav-h) + env(safe-area-inset-top, 0px));
     left: 0;
     right: 0;
     z-index: 99;
@@ -1028,7 +1033,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   min-height: 400px;
   display: flex;
   align-items: center;
-  padding-top: var(--nav-h);
+  padding-top: calc(var(--nav-h) + env(safe-area-inset-top, 0px));
   padding-bottom: 2rem;
   background-color: var(--color-bg);
   background-image: var(--page-hero-image, none);
