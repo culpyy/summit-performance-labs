@@ -198,7 +198,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .nav__logo span { color: var(--color-silver); font-weight: 400; }
 /* Inline SVG, not a raster <img> — sidesteps every image-intrinsic-size/
    flex-sizing edge case that a PNG can hit on some mobile renderers. */
-.nav__logo-icon { height: 42px; width: auto; display: block; flex-shrink: 0; color: var(--color-steel-light); }
+.nav__logo-icon { height: 42px; width: auto; display: block; flex-shrink: 0; color: var(--color-white); }
 .nav__logo-text { white-space: nowrap; }
 
 .nav__links {
