@@ -963,18 +963,25 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
     padding: 1.25rem 1.25rem 2rem;
     gap: 0;
     transform: translateY(-110%);
+    opacity: 0;
     visibility: hidden;
-    transition: transform .3s cubic-bezier(.4,0,.2,1), visibility 0s linear .3s;
+    transition: transform .3s cubic-bezier(.4,0,.2,1), opacity .15s linear, visibility 0s linear .3s;
   }
   /* The -110% transform alone isn't guaranteed to clear the screen — it's
      relative to the drawer's own (content-dependent) height, not the
      viewport, so a short link list can still paint its top edge over the
      nav bar above it. visibility:hidden removes it from paint entirely
-     while closed, regardless of that math. */
+     while closed, regardless of that math.
+     The opacity fade (much shorter than the slide) is what actually gets
+     rid of the last item — a pure slide-up moves the whole panel as one
+     block, so content near the bottom (e.g. Book a Call) has the farthest
+     distance to travel and visibly lingers on screen the longest; fading
+     it out quickly hides that regardless of position. */
   .nav__links.open {
     transform: translateY(0);
+    opacity: 1;
     visibility: visible;
-    transition: transform .3s cubic-bezier(.4,0,.2,1);
+    transition: transform .3s cubic-bezier(.4,0,.2,1), opacity .2s linear;
   }
   .nav__links a:not(.btn) {
     font-size: 1.05rem;
