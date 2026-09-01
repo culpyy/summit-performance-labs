@@ -230,40 +230,23 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   position: relative;
   min-height: 100vh;
   min-height: 100svh;
-  display: flex;
-  align-items: center;
   background: var(--color-bg);
 }
 
-.hero::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(ellipse 80% 60% at 50% -10%, rgba(244,93,42,.18) 0%, transparent 70%),
-    radial-gradient(ellipse 60% 80% at 100% 50%, rgba(244,93,42,.07) 0%, transparent 60%);
-  pointer-events: none;
-}
-
-.hero__overlay {
-  position: absolute;
-  inset: 0;
-  background: repeating-linear-gradient(
-    0deg,
-    transparent,
-    transparent 2px,
-    rgba(255,255,255,.012) 2px,
-    rgba(255,255,255,.012) 4px
-  );
-  pointer-events: none;
+/* Split hero: text column + contained photo panel, not text-over-photo */
+.hero--split {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
 }
 
 .hero__content {
   position: relative;
   z-index: 1;
-  padding-top: calc(var(--nav-h) + env(safe-area-inset-top, 0px) + 1rem);
-  padding-bottom: 3rem;
-  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: calc(var(--nav-h) + env(safe-area-inset-top, 0px) + 2rem) clamp(1.5rem, 4vw, 4rem) 3rem clamp(1.5rem, 6vw, 6vw);
+  background: radial-gradient(ellipse 90% 70% at 0% 15%, rgba(244,93,42,.16) 0%, transparent 65%);
 }
 
 .hero__eyebrow {
@@ -287,17 +270,17 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 
 .hero__headline {
   font-family: var(--font-display);
-  font-size: clamp(3.5rem, 10vw, 7.5rem);
-  line-height: .95;
+  font-size: clamp(2.8rem, 5.2vw, 5.5rem);
+  line-height: .97;
   color: var(--color-white);
   letter-spacing: .02em;
   margin-bottom: 1.75rem;
 }
 
 .hero__sub {
-  font-size: clamp(.95rem, 2vw, 1.15rem);
+  font-size: clamp(.95rem, 1.4vw, 1.1rem);
   color: var(--color-muted);
-  max-width: 580px;
+  max-width: 460px;
   margin-bottom: 2.5rem;
   line-height: 1.75;
 }
@@ -308,22 +291,32 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   gap: 1rem;
 }
 
-.hero__scroll-hint {
+.hero__visual {
+  position: relative;
+  overflow: hidden;
+  min-height: 320px;
+}
+.hero__visual img {
   position: absolute;
-  bottom: 2rem;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 1;
-}
-.hero__scroll-hint span {
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   display: block;
-  width: 1px;
-  height: 60px;
-  background: linear-gradient(to bottom, rgba(255,255,255,.3), transparent);
-  margin: auto;
-  animation: scrollHint 2s ease-in-out infinite;
 }
-@keyframes scrollHint { 0%,100% { opacity: 1; height: 60px; } 50% { opacity: .4; height: 30px; } }
+.hero__visual::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(10,10,10,.6) 0%, rgba(10,10,10,0) 20%),
+    linear-gradient(0deg, rgba(10,10,10,.45) 0%, transparent 35%);
+}
+
+@media (max-width: 900px) {
+  .hero--split { grid-template-columns: 1fr; }
+  .hero__visual { order: -1; min-height: 280px; }
+}
 
 /* ============================================================
    Stats Bar
@@ -986,29 +979,6 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .page-hero--coaches { --page-hero-image: url('../assets/img/coaches-corridor.jpg'); }
 
 /* ============================================================
-   Hero — Photo Background (Home)
-   ============================================================ */
-.hero--video {
-  background: url('../assets/img/hero-lift.jpg') center 22% / cover no-repeat;
-}
-.hero--video .hero__video {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: 0;
-}
-.hero--video .hero__video-overlay {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  background: linear-gradient(180deg, rgba(10,10,10,.5) 0%, rgba(10,10,10,.35) 45%, rgba(10,10,10,.92) 100%);
-}
-.hero--video .hero__content { position: relative; z-index: 1; }
-.hero--video::before { display: none; }
-
-/* ============================================================
    Nav active state
    ============================================================ */
 .nav__links a.active:not(.btn) { color: var(--color-white); }
@@ -1056,8 +1026,9 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
-  align-items: start;
+  align-items: stretch;
 }
+.pricing__grid .service-card { height: 100%; }
 .pricing__grid--4up { grid-template-columns: repeat(4, 1fr); }
 @media (max-width: 1200px) {
   .pricing__grid--4up { grid-template-columns: repeat(2, 1fr); }
@@ -1150,15 +1121,13 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
    diamond/hex framing) instead of generic icon-in-a-box treatments.
    ============================================================ */
 
-/* Skyline: a jagged mountain-range mask, reused wherever a hero-style
-   section needs a horizon instead of a flat edge. One shape, recolored
-   per context via background instead of duplicating markup. */
-.hero--video::after,
+/* Skyline: a jagged mountain-range mask, used on secondary-page headers
+   for a horizon instead of a flat edge. */
 .page-hero::after {
   content: '';
   position: absolute;
   left: 0; right: 0; bottom: 0;
-  height: 90px;
+  height: 60px;
   pointer-events: none;
   -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 200' preserveAspectRatio='none'%3E%3Cpath d='M0,160 L80,110 L150,150 L230,60 L300,130 L380,40 L460,120 L540,70 L620,140 L700,90 L780,150 L860,50 L940,130 L1020,80 L1100,150 L1180,100 L1260,140 L1340,90 L1440,150 L1440,200 L0,200 Z'/%3E%3C/svg%3E");
   mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 200' preserveAspectRatio='none'%3E%3Cpath d='M0,160 L80,110 L150,150 L230,60 L300,130 L380,40 L460,120 L540,70 L620,140 L700,90 L780,150 L860,50 L940,130 L1020,80 L1100,150 L1180,100 L1260,140 L1340,90 L1440,150 L1440,200 L0,200 Z'/%3E%3C/svg%3E");
@@ -1168,26 +1137,9 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   mask-repeat: no-repeat;
   -webkit-mask-position: bottom;
   mask-position: bottom;
+  background: linear-gradient(180deg, transparent, var(--color-border));
+  opacity: .8;
 }
-.hero--video::after { height: 140px; background: linear-gradient(180deg, transparent, rgba(244,93,42,.16) 40%, rgba(10,10,10,.9)); }
-.page-hero::after { height: 60px; background: linear-gradient(180deg, transparent, var(--color-border)); opacity: .8; }
-
-/* Hero crest watermark — the actual logo, faded into the background instead
-   of a stock photo we don't have yet. */
-.hero__logo-mark {
-  position: absolute;
-  top: 50%;
-  right: 2vw;
-  transform: translateY(-50%);
-  width: 360px;
-  max-width: 40vw;
-  opacity: .15;
-  filter: drop-shadow(0 0 70px rgba(244,93,42,.4));
-  z-index: 0;
-  pointer-events: none;
-  user-select: none;
-}
-@media (max-width: 900px) { .hero__logo-mark { display: none; } }
 
 /* Hex patches — the icon treatment tactical gear actually uses (hex-shaped
    morale patches), built from the logo's own steel gradient. Applied to
