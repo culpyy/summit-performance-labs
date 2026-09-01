@@ -6,8 +6,8 @@
   --color-surface:   #141414;
   --color-surface2:  #1e1e1e;
   --color-border:    #2a2a2a;
-  --color-accent:    #f45d2a;
-  --color-accent-h:  #ff7043;
+  --color-accent:    #c99a4b;
+  --color-accent-h:  #dbb06a;
   --color-text:      #f0f0f0;
   --color-muted:     #888;
   --color-silver:    #9a9a9a;
@@ -144,7 +144,6 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   padding-right: env(safe-area-inset-right, 0px);
   border-bottom: 1px solid transparent;
   transition: background .3s, border-color .3s, backdrop-filter .3s;
-  -webkit-transform: translateZ(0);
 }
 
 .nav.scrolled {
@@ -230,23 +229,42 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   position: relative;
   min-height: 100vh;
   min-height: 100svh;
+  display: flex;
+  align-items: center;
   background: var(--color-bg);
+  overflow: hidden;
 }
 
-/* Split hero: text column + contained photo panel, not text-over-photo */
-.hero--split {
-  display: grid;
-  grid-template-columns: 1.1fr 1fr;
+/* Photo hero: one full-bleed image with a directional scrim, not a
+   hard-edged split — the text sits in a gradient that fades into the
+   photo rather than a separate panel. */
+.hero__visual {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.hero__visual img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.hero__visual::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(100deg, rgba(10,10,10,.95) 0%, rgba(10,10,10,.86) 30%, rgba(10,10,10,.55) 55%, rgba(10,10,10,.35) 75%, rgba(10,10,10,.6) 100%),
+    linear-gradient(0deg, rgba(10,10,10,.65) 0%, transparent 45%);
 }
 
 .hero__content {
   position: relative;
   z-index: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  max-width: 620px;
   padding: calc(var(--nav-h) + env(safe-area-inset-top, 0px) + 2rem) clamp(1.5rem, 4vw, 4rem) 3rem clamp(1.5rem, 6vw, 5rem);
-  background: radial-gradient(ellipse 90% 70% at 0% 15%, rgba(244,93,42,.16) 0%, transparent 65%);
 }
 
 .hero__eyebrow {
@@ -291,33 +309,11 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   gap: 1rem;
 }
 
-.hero__visual {
-  position: relative;
-  overflow: hidden;
-  min-height: 320px;
-}
-.hero__visual img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-.hero__visual::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(90deg, rgba(10,10,10,.6) 0%, rgba(10,10,10,0) 20%),
-    linear-gradient(0deg, rgba(10,10,10,.45) 0%, transparent 35%);
-}
-
-@media (max-width: 900px) {
-  .hero { min-height: auto; }
-  .hero--split { grid-template-columns: 1fr; }
-  .hero__visual { order: -1; min-height: 280px; }
-  .hero__content { padding-top: calc(var(--nav-h) + env(safe-area-inset-top, 0px) + 1.5rem); padding-bottom: 2.5rem; }
+@media (max-width: 480px) {
+  .hero__visual::after {
+    background:
+      linear-gradient(180deg, rgba(10,10,10,.6) 0%, rgba(10,10,10,.75) 55%, rgba(10,10,10,.92) 100%);
+  }
 }
 
 /* ============================================================
@@ -975,7 +971,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   inset: 0;
   background:
     linear-gradient(180deg, rgba(10,10,10,.7) 0%, rgba(10,10,10,.55) 50%, rgba(10,10,10,.95) 100%),
-    radial-gradient(ellipse 80% 60% at 50% -10%, rgba(244,93,42,.14) 0%, transparent 70%);
+    radial-gradient(ellipse 80% 60% at 50% -10%, rgba(201,154,75,.14) 0%, transparent 70%);
   pointer-events: none;
 }
 .page-hero__inner { position: relative; z-index: 1; width: 100%; }
@@ -1016,7 +1012,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   width: 48px;
   height: 48px;
   border-radius: var(--radius);
-  background: rgba(244,93,42,.12);
+  background: rgba(201,154,75,.12);
   color: var(--color-accent);
   display: flex;
   align-items: center;
@@ -1047,7 +1043,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   letter-spacing: .08em;
   text-transform: uppercase;
   color: var(--color-accent);
-  border: 1px solid rgba(244,93,42,.4);
+  border: 1px solid rgba(201,154,75,.4);
   border-radius: 99px;
   padding: .25rem .65rem;
   margin-bottom: -.5rem;
