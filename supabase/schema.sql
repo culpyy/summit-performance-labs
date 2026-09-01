@@ -41,6 +41,7 @@ create table programs (
   type text not null default 'program' check (type in ('subscription', 'program')),
   price_cents int not null default 0,
   billing_interval text not null default 'month' check (billing_interval in ('month', 'year', 'one-time')),
+  audience text,
   description text,
   features text[] default '{}',
   stripe_link text,
@@ -118,20 +119,25 @@ create policy "Authenticated can manage workshops"
   with check (auth.role() = 'authenticated');
 
 -- ============================================================
--- Seed data — placeholders so pages aren't empty before Andrew edits them via /admin
+-- Seed data — mirrors the real content currently live on
+-- summitperformancelab.vercel.app, so the admin panel starts populated
+-- with accurate data instead of placeholders. Edit freely via /admin.
 -- ============================================================
 insert into coaches (name, title, certs, bio, sort_order) values
-  ('Coach Name', 'Head Strength & Conditioning Coach', array['CSCS', 'NSCA-CPT'], 'Add this coach''s background, specialties, and what drives them.', 1),
-  ('Coach Name', 'Tactical Performance Specialist', array['TSAC-F', 'EMT'], 'Add this coach''s background, specialties, and what drives them.', 2),
-  ('Coach Name', 'Group Fitness & Nutrition Coach', array['NASM-CPT', 'PN1'], 'Add this coach''s background, specialties, and what drives them.', 3);
+  ('Coach Andy', 'Head Coach & Founder', array[]::text[],
+   'Founder of Summit Performance Lab with extensive tactical fitness experience. Dedicated to building world-class training programs that help first responders and military personnel perform at their peak while preventing injuries and extending careers. "Train like your life depends on it."',
+   1),
+  ('Coach Jones', 'Tactical Strength & Conditioning Specialist', array['CSCS', 'TSAC-F', 'USAW Sports Performance Coach', 'USR Certified Speed Coach'],
+   'Provides world-class tactical strength & conditioning to first responders and military in Alaska. Over 10 years coaching Army, Air Force, collegiate, and private sectors — including top-10 Army Best Ranger & Best Sapper teams, Special Forces candidates, and F-22 pilot performance programs. "Maximize performance, build resilience, stay mission-ready."',
+   2),
+  ('Coach Nic', 'Military Fitness Specialist & Youth Development Coach', array[]::text[],
+   'With 12 years of military experience maintaining the F-22 Raptor across multiple deployments, Nic is a dedicated Physical Training Leader who has programmed and managed the Fitness Improvement Program. Also experienced in adult strength coaching, 1:1 personal training, and youth sports development. "Live for something greater than yourself."',
+   3);
 
-insert into programs (name, type, price_cents, billing_interval, description, features, sort_order) values
-  ('Personal Training', 'subscription', 20000, 'month',
-   'One-on-one programming designed around your goals, your body, and your schedule.',
-   array['Customized training programs', 'Nutrition & recovery guidance', 'Progress tracking & benchmarks', 'Flexible scheduling'], 1),
-  ('Group Classes', 'subscription', 12000, 'month',
-   'High-energy, coach-led sessions that build strength, conditioning, and community.',
-   array['Structured strength & conditioning', 'Small group format (max 12)', 'Beginner to advanced levels', 'Community accountability'], 2),
-  ('Tactical Training', 'program', 30000, 'one-time',
-   'Purpose-built conditioning for military, law enforcement, fire, and EMS professionals.',
-   array['Job-specific fitness standards', 'Occupational endurance & strength', 'Load-bearing & functional movement', 'Stress-inoculation protocols'], 3);
+insert into programs (name, type, price_cents, billing_interval, audience, description, features, sort_order) values
+  ('Proactive Fit', 'subscription', 3000, 'month', 'For First Responders',
+   'Tactical Athlete Training',
+   array['Year-round live programming', '5 training sessions per week', 'Quarterly assessments & tracking', 'Power, speed, strength & conditioning', 'Mobility & recovery protocols'], 1),
+  ('Total Force Strength & Conditioning', 'subscription', 3500, 'month', 'For Military',
+   'Military Tactical Training',
+   array['6 training days per week', 'Tactical conditioning & strength work', 'Functional mobility & recovery', 'Purpose-driven training blocks'], 2);

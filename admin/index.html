@@ -4,11 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="robots" content="noindex, nofollow" />
-  <title>Admin | Summit Performance Labs</title>
+  <title>Admin | Summit Performance Lab</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="icon" type="image/webp" href="../assets/img/logo.webp" />
+  <link rel="icon" type="image/png" href="../assets/img/logo-mark.png" />
   <link rel="stylesheet" href="../css/styles.css" />
   <link rel="stylesheet" href="../css/admin.css" />
 </head>
@@ -16,7 +16,7 @@
 
   <!-- LOGIN -->
   <div class="admin-login" id="adminLogin">
-    <p class="admin-login__logo"><img src="../assets/img/logo.webp" alt="Summit Performance Labs" style="height:64px; display:block; margin:0 auto .5rem;" />ADMIN</p>
+    <p class="admin-login__logo"><img src="../assets/img/logo.png" alt="Summit Performance Lab" style="height:80px; display:block; margin:0 auto .5rem;" />ADMIN</p>
     <div class="admin-login__error" id="loginError">Invalid email or password.</div>
     <form id="loginForm">
       <div class="form-group">
@@ -34,7 +34,7 @@
   <!-- DASHBOARD SHELL -->
   <div class="admin-shell" id="adminShell">
     <div class="admin-topbar">
-      <span class="nav__logo"><img src="../assets/img/logo.webp" alt="Summit Performance Labs" />SUMMIT<span>PERFORMANCE</span>LABS <small style="font-size:.6rem; color: var(--color-muted); font-family: var(--font-body); letter-spacing:.1em;">ADMIN</small></span>
+      <span class="nav__logo"><img src="../assets/img/logo-mark.png" alt="Summit Performance Lab" /><span class="nav__logo-text">SUMMIT<span>PERFORMANCE</span>LAB</span> <small style="font-size:.6rem; color: var(--color-muted); font-family: var(--font-body); letter-spacing:.1em;">ADMIN</small></span>
       <button class="btn btn--outline btn--sm" id="logoutBtn">Log Out</button>
     </div>
 
@@ -173,6 +173,10 @@
         <div class="form-group">
           <label for="programPrice">Price (USD) <span class="required">*</span></label>
           <input type="number" id="programPrice" min="0" step="0.01" required />
+        </div>
+        <div class="form-group">
+          <label for="programAudience">Audience Tag</label>
+          <input type="text" id="programAudience" placeholder="e.g. For First Responders" />
         </div>
         <div class="form-group">
           <label for="programDescription">Description</label>

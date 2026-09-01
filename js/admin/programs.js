@@ -15,6 +15,7 @@ function openProgramModal(program) {
   document.getElementById('programType').value = program ? program.type : 'subscription';
   document.getElementById('programBillingInterval').value = program ? program.billing_interval : 'month';
   document.getElementById('programPrice').value = program ? (program.price_cents / 100).toFixed(2) : '';
+  document.getElementById('programAudience').value = program ? (program.audience || '') : '';
   document.getElementById('programDescription').value = program ? (program.description || '') : '';
   document.getElementById('programFeatures').value = program ? (program.features || []).join('\n') : '';
   document.getElementById('programStripeLink').value = program ? (program.stripe_link || '') : '';
@@ -98,6 +99,7 @@ programForm.addEventListener('submit', async (e) => {
     type: document.getElementById('programType').value,
     billing_interval: document.getElementById('programBillingInterval').value,
     price_cents: Math.round(priceDollars * 100),
+    audience: document.getElementById('programAudience').value.trim() || null,
     description: document.getElementById('programDescription').value.trim(),
     features: document.getElementById('programFeatures').value.split('\n').map(s => s.trim()).filter(Boolean),
     stripe_link: document.getElementById('programStripeLink').value.trim() || null,

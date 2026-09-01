@@ -173,7 +173,8 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   gap: .65rem;
 }
 .nav__logo span { color: var(--color-silver); font-weight: 300; }
-.nav__logo img { height: 42px; width: auto; display: block; }
+.nav__logo img { height: 42px; width: auto; display: block; flex-shrink: 0; }
+.nav__logo-text { white-space: nowrap; }
 
 .nav__links {
   display: flex;
@@ -931,6 +932,8 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 @media (max-width: 480px) {
   :root { --section-gap: 52px; }
 
+  .nav__logo-text { display: none; }
+
   .stats__grid { grid-template-columns: 1fr 1fr; gap: .75rem; }
   .stat__num { font-size: 2.4rem; }
 
@@ -1055,6 +1058,24 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   gap: 1.5rem;
   align-items: start;
 }
+.pricing__grid--4up { grid-template-columns: repeat(4, 1fr); }
+@media (max-width: 1200px) {
+  .pricing__grid--4up { grid-template-columns: repeat(2, 1fr); }
+}
+
+.program-tag {
+  display: inline-block;
+  align-self: flex-start;
+  font-size: .68rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  border: 1px solid rgba(244,93,42,.4);
+  border-radius: 99px;
+  padding: .25rem .65rem;
+  margin-bottom: -.5rem;
+}
 
 .pricing-card__price {
   display: flex;
@@ -1156,11 +1177,11 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .hero__logo-mark {
   position: absolute;
   top: 50%;
-  right: -40px;
+  right: 2vw;
   transform: translateY(-50%);
-  width: 480px;
-  max-width: 50vw;
-  opacity: .16;
+  width: 360px;
+  max-width: 40vw;
+  opacity: .15;
   filter: drop-shadow(0 0 70px rgba(244,93,42,.4));
   z-index: 0;
   pointer-events: none;
@@ -1190,6 +1211,53 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   pointer-events: none;
 }
 .why-card__icon { width: 52px; height: 52px; }
+
+/* ============================================================
+   Hero audience badges (Law Enforcement / Fire-EMS / Military)
+   ============================================================ */
+.hero__badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+.hero__badges span {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  font-size: .78rem;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--color-silver);
+}
+.hero__badges svg { width: 18px; height: 18px; color: var(--color-accent); flex-shrink: 0; }
+
+/* ============================================================
+   Trust bar (replaces generic vanity-metric stats)
+   ============================================================ */
+.stats__grid--trust {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .6rem;
+  text-align: center;
+}
+.trust-line {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  letter-spacing: .03em;
+  color: var(--color-text);
+}
+.trust-line strong { color: var(--color-accent); }
+.trust-line--badge {
+  font-family: var(--font-body);
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--color-silver);
+}
 
 /* ============================================================
    Extra responsive rules for new sections
