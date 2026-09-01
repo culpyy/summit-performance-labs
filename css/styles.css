@@ -245,7 +245,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: calc(var(--nav-h) + env(safe-area-inset-top, 0px) + 2rem) clamp(1.5rem, 4vw, 4rem) 3rem clamp(1.5rem, 6vw, 6vw);
+  padding: calc(var(--nav-h) + env(safe-area-inset-top, 0px) + 2rem) clamp(1.5rem, 4vw, 4rem) 3rem clamp(1.5rem, 6vw, 5rem);
   background: radial-gradient(ellipse 90% 70% at 0% 15%, rgba(244,93,42,.16) 0%, transparent 65%);
 }
 
@@ -314,8 +314,10 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 
 @media (max-width: 900px) {
+  .hero { min-height: auto; }
   .hero--split { grid-template-columns: 1fr; }
   .hero__visual { order: -1; min-height: 280px; }
+  .hero__content { padding-top: calc(var(--nav-h) + env(safe-area-inset-top, 0px) + 1.5rem); padding-bottom: 2.5rem; }
 }
 
 /* ============================================================
@@ -905,6 +907,10 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   .hero__headline { font-size: clamp(2.8rem, 11vw, 4.5rem); }
   .hero__sub { font-size: .95rem; }
 
+  /* Page hero banners — 400px reads as a near-square block on narrow phones */
+  .page-hero { min-height: 300px; }
+  .calendly-inline-widget { height: 500px; }
+
   /* Grids */
   .services__grid { grid-template-columns: 1fr; }
   .why__grid { grid-template-columns: 1fr 1fr; }
@@ -933,6 +939,8 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   .hero__headline { font-size: clamp(2.5rem, 13vw, 3.5rem); }
   .hero__ctas { flex-direction: column; }
   .hero__ctas .btn { width: 100%; justify-content: center; }
+
+  .page-hero { min-height: 260px; }
 
   .why__grid { grid-template-columns: 1fr; }
 
@@ -1024,15 +1032,12 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
    ============================================================ */
 .pricing__grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 1.5rem;
   align-items: stretch;
 }
 .pricing__grid .service-card { height: 100%; }
-.pricing__grid--4up { grid-template-columns: repeat(4, 1fr); }
-@media (max-width: 1200px) {
-  .pricing__grid--4up { grid-template-columns: repeat(2, 1fr); }
-}
+.pricing__grid--4up { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
 
 .program-tag {
   display: inline-block;
@@ -1216,6 +1221,5 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
    ============================================================ */
 @media (max-width: 1024px) {
   .guides__grid { grid-template-columns: 1fr; }
-  .pricing__grid { grid-template-columns: 1fr; }
   .team-training__grid { grid-template-columns: 1fr; }
 }
